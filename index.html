@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>assignment</title>
+    
 </head>
-
 <body>
-    <h1>Javascript es6 Hello world</h1>
+    <h1>Celsius to Fahrenheit tempereture converter</h1>
+    <p>Type a value in the Fahrenheit field to convert the value to Celsius:</p>
 
-    <script src="./script.mjs"></script>
+    
+      
+      <div>
+        <label for="celsiusInput">Enter temperature in Celsius:</label>
+        <input type="number" id="celsiusInput" placeholder="Celsius">
+        <button id="convertButton">Convert</button>
+      </div>
+      <div id="result">
+        <p>Result: <span id="fahrenheitResult">---</span> °F</p>
+      </div>
+
+
+      <script>
+       const convertCelsiusToFahrenheit = (celsius) => {
+      return (celsius * 9/5) + 32;
+    };
+    
+    document.getElementById("convertButton").addEventListener("click", () => {
+      const celsiusInput = parseFloat(document.getElementById("celsiusInput").value);
+      if (!isNaN(celsiusInput)) {
+        const fahrenheitResult = convertCelsiusToFahrenheit(celsiusInput);
+        document.getElementById("fahrenheitResult").textContent = fahrenheitResult.toFixed(2);
+      } else {
+        alert("Please enter a valid number for Celsius temperature.");
+      }
+    });
+      </script>
+
 </body>
-
 </html>
